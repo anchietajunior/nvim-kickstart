@@ -279,6 +279,10 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.o.breakindent = true
 
+vim.o.indent_type = "Spaces"
+vim.o.indent_width = 2
+vim.o.column_width = 120
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -481,7 +485,7 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
@@ -577,3 +581,4 @@ vim.keymap.set("n", ",2", ":BufferNext<CR>")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+vim.cmd[[ autocmd FileType go setlocal tabstop=2 shiftwidth=2 softtabstop=2 ]]
